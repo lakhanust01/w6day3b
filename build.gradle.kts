@@ -55,9 +55,6 @@ tasks.withType<JavaCompile>().configureEach {
 
 allure {
     version.set("2.28.1")
-    autoconfigure.set(true)
-    aspectjweaver.set(true)
-    resultsDir.set(layout.buildDirectory.dir("allure-results"))
 }
 
 tasks.withType<Test>().configureEach {
