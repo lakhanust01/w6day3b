@@ -1,5 +1,6 @@
 plugins {
     java
+    id("io.qameta.allure") version "2.11.1"
 }
 
 group = "com.ust.sdet"
@@ -44,11 +45,19 @@ dependencies {
     testImplementation("org.flywaydb:flyway-core:${flywayVersion}")
     testImplementation("org.flywaydb:flyway-database-postgresql:${flywayVersion}")
     testImplementation("org.postgresql:postgresql:${postgresqlVersion}")
+    testImplementation("io.qameta.allure:allure-junit-platform")
 }
 
 tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
     options.release.set(21)
+}
+
+allure {
+    version.set("2.28.1")
+    autoconfigure.set(true)
+    aspectjweaver.set(true)
+    resultsDir.set(layout.buildDirectory.dir("allure-results"))
 }
 
 tasks.withType<Test>().configureEach {
