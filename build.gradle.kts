@@ -18,8 +18,8 @@ val flywayVersion = "10.22.0"
 val postgresqlVersion = "42.7.4"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_22
-    targetCompatibility = JavaVersion.VERSION_22
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 dependencies {
@@ -48,7 +48,7 @@ dependencies {
 
 tasks.withType<JavaCompile>().configureEach {
     options.encoding = "UTF-8"
-    options.release.set(22)
+    options.release.set(21)
 }
 
 tasks.withType<Test>().configureEach {
