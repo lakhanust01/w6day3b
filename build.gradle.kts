@@ -123,6 +123,15 @@ val postgresIntegrationTest by tasks.registering(Test::class) {
     maxParallelForks = 1
 }
 
+val integrationTests by tasks.registering(Test::class) {
+    description = "Runs all integration tests (Testcontainers + Layer 1)."
+    group = "verification"
+    useProjectTestClasses()
+    useJUnitPlatform()
+    include("**/PostgresFlywayInfrastructureTest.class", "**/OrderTest.class")
+    maxParallelForks = 1
+}
+
 tasks.register("projectBuildSummary") {
     description = "Prints the Gradle command map for this project."
     group = "help"

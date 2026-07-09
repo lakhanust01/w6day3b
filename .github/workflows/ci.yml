@@ -25,4 +25,4 @@ jobs:
           gradle-version: '8.10.2'
 
       - name: Run tests
-        run: gradle clean test --tests "com.ust.sdet.support.PostgresFlywayInfrastructureTest or com.ust.sdet.tests.OrderTest"
+        run: gradle clean integrationTests
