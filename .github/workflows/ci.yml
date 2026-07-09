@@ -23,6 +23,9 @@ jobs:
       - name: Make Gradle wrapper executable
         run: chmod +x gradlew
 
+      - name: Verify Gradle wrapper jar exists
+        run: test -f gradle/wrapper/gradle-wrapper.jar
+
       - name: Compile test sources
         run: ./gradlew compileTestJava --console=plain --no-daemon
 
