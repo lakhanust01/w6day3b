@@ -1,4 +1,4 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","37","countsOrders()","","2026-07-09","passed","2026-07-09","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","countsOrders"
-"","73","shouldUseContainerCredentialsAndApplyMigrations()","","2026-07-09","passed","2026-07-09","","com.ust.sdet.support.PostgresFlywayInfrastructureTest","com.ust.sdet.support.PostgresFlywayInfrastructureTest","shouldUseContainerCredentialsAndApplyMigrations"
-"","38","createsOrder()","","2026-07-09","passed","2026-07-09","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","createsOrder"
+"","35","countsOrders()","","2026-07-09","passed","2026-07-09","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","countsOrders"
+"","102","shouldUseContainerCredentialsAndApplyMigrations()","","2026-07-09","passed","2026-07-09","","com.ust.sdet.support.PostgresFlywayInfrastructureTest","com.ust.sdet.support.PostgresFlywayInfrastructureTest","shouldUseContainerCredentialsAndApplyMigrations"
+"","33","createsOrder()","","2026-07-09","passed","2026-07-09","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","createsOrder"
