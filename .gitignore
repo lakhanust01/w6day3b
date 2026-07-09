@@ -10,12 +10,10 @@ build/
 
 # Maven
 target/
-script/
+scripts/
 
 ### IntelliJ IDEA ###
 **/.idea/
-*.jar
-
 .idea/
 .idea/modules.xml
 .idea/jarRepositories.xml
