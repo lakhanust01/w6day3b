@@ -29,7 +29,7 @@ jobs:
           gradle-version: '8.10.2'
 
       - name: Run tests
-        run: gradle clean integrationTests
+        run: gradle clean integrationTests --no-configuration-cache
         continue-on-error: true
 
       - name: Checkout Allure history
