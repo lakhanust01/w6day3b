@@ -4,77 +4,64 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-/script
-# Maven
-target/
 
 # Kotlin
 .kotlin/
 
-# IntelliJ IDEA
+# Maven
+target/
+script/
+
+### IntelliJ IDEA ###
+**/.idea/
+*.jar
+
 .idea/
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
 *.iml
 *.ipr
-*.iws
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-.idea/
-**/.idea/
-*.jar
-**/*.jar
 
-# Eclipse
+### Eclipse ###
 .apt_generated
 .classpath
 .factorypath
 .project
-.settings/
+.settings
 .springBeans
-.sts4-cache/
+.sts4-cache
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
-# NetBeans
+### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 
-# VS Code
+### VS Code ###
 .vscode/
 
-# macOS
-.DS_Store
-
-# Windows
-Thumbs.db
-Desktop.ini
-
-# Logs
-*.log
-
-# Temporary files
-*.tmp
-*.temp
-*.swp
-*.swo
-
-# Test reports
-test-output/
-reports/
-allure-results/
-allure-report/
-
-# Environment files
+### Environment / Secrets ###
 .env
 .env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
 
-# Java
-*.class
+### macOS ###
+.DS_Store
 
-# OS-generated files
-*.pid
-*.seed
+### Windows ###
+Thumbs.db
+Desktop.ini
