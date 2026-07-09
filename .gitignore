@@ -1,21 +1,12 @@
-# Gradle
-.gradle/
+.gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-
-# Kotlin
-.kotlin/
-
-# Maven
-target/
-
+.kotlin
+/target
+/scripts
 ### IntelliJ IDEA ###
-**/.idea/
-*.jar
-**/*.jar
-.idea/
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
@@ -49,19 +40,7 @@ bin/
 ### VS Code ###
 .vscode/
 
-### Environment / Secrets ###
-.env
-.env.*
-*.pem
-*.key
-*.p12
-*.pfx
-*.crt
-
-### macOS ###
+### Mac OS ###
 .DS_Store
-
-### Windows ###
-Thumbs.db
-Desktop.ini
-scripts/
+.idea
+.idea/
