@@ -3,46 +3,54 @@ name: Java CI
 on:
   push:
     branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  order-test:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Set up JDK 21
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
 
-      - name: Set up Gradle
+      - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.10.2'
 
-      - name: Run tests
-        run: gradle clean integrationTests --no-configuration-cache
+      - name: Run Order Test
+        run: ./gradlew clean test --tests "com.ust.sdet.tests.OrderTest" --no-configuration-cache
+
+      - name: Checkout gh-pages branch
+        if: always()
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: gh-pages
 
       - name: Generate Allure Report
-        uses: simple-elf/allure-report-action@master
         if: always()
+        uses: simple-elf/allure-report-action@master
         with:
           allure_results: build/allure-results
+          allure_report: allure-report
+          gh_pages: gh-pages
           allure_history: allure-history
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy report to GitHub Pages
         if: always()
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: allure-report
-
-      - name: Report Link
-        if: always()
-        run: |
-          echo " Tests completed"
-          echo " Report: https://lakhanust01.github.io/w6day3b/"
+          publish_branch: gh-pages
+          publish_dir: allure-history
