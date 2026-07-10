@@ -64,6 +64,9 @@ tasks.withType<Test>().configureEach {
     systemProperty("browser", providers.gradleProperty("browser").orElse("chrome").get())
     systemProperty("build.label", providers.gradleProperty("buildLabel").orElse("gradle-local").get())
     systemProperty("cucumber.publish.quiet", "true")
+    systemProperty("allure.results.directory", layout.buildDirectory.dir("allure-results").get().asFile.absolutePath)
+    systemProperty("allure.link.issue.pattern", "https://example.com/issue/{}")
+    systemProperty("allure.link.tms.pattern", "https://example.com/tms/{}")
     testLogging {
         events("passed", "skipped", "failed")
         exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.SHORT

@@ -44,5 +44,5 @@ jobs:
       - name: Report Link
         if: always()
         run: |
-          echo "✅ Tests completed"
-          echo "📊 Report: https://lakhanust01.github.io/w6day3b/"
+          echo " Tests completed"
+          echo " Report: https://lakhanust01.github.io/w6day3b/"
