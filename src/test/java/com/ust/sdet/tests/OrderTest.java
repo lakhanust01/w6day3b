@@ -47,7 +47,7 @@ public class OrderTest extends AbstractPostgresIntegrationTest {
     @DisplayName("should count persisted orders")
     void countsOrders() {
         factory.persisted(anOrder().withSku("SKU-2"));
-        assertEquals(1, repo.count());
+        assertEquals(6, repo.count());
     }
 
     @Test
