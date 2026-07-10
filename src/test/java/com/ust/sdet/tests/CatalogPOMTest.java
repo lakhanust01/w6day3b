@@ -38,7 +38,7 @@ public class CatalogPOMTest {
 
         LoginPage login = new LoginPage(driver);
 
-        HomePage home = login.email("customer@example.com").password("Password@123").signIn();
+        HomePage home = login.email("custome@example.com").password("Password@123").signIn();
 
         assertEquals("Customer User", home.header().userName());
 
