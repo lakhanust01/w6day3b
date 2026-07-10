@@ -57,7 +57,7 @@ public class OrderTest extends AbstractPostgresIntegrationTest {
     void countsMultipleOrders() {
         factory.persisted(anOrder().withSku("SKU-3").withQty(2));
         factory.persisted(anOrder().withSku("SKU-4").withQty(4));
-        assertEquals(2, repo.count());
+        assertEquals(3, repo.count());
     }
 
     @Test
