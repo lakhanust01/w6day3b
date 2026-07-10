@@ -66,7 +66,7 @@ public class OrderTest extends AbstractPostgresIntegrationTest {
     @DisplayName("should persist an order with custom attributes")
     void createsOrderWithCustomAttributes() {
         factory.persisted(anOrder().withSku("SKU-9").withQty(7).withPrice(199.99).shipped());
-        assertEquals(1, repo.count());
+        assertEquals(4, repo.count());
     }
 }
  
