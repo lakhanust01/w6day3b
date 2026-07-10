@@ -3,39 +3,35 @@ name: Java CI
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
-
-permissions:
-  contents: write
 
 jobs:
-  order-test:
+  build:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+    permissions:
+      contents: write
 
-      - name: Setup Java
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
 
-      - name: Setup Gradle
+      - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.10.2'
 
-      - name: Make Gradle wrapper executable
-        run: chmod +x gradlew
+      - name: Run tests
+        run: gradle clean integrationTests --no-configuration-cache
 
-      - name: Run Order Test
-        run: ./gradlew clean test --tests "com.ust.sdet.tests.OrderTest" --no-configuration-cache
-
-      - name: Checkout gh-pages branch
+      # Checkout gh-pages so Allure can preserve history
+      - name: Checkout gh-pages
         if: always()
+        continue-on-error: true
         uses: actions/checkout@v4
         with:
           ref: gh-pages
@@ -50,10 +46,23 @@ jobs:
           gh_pages: gh-pages
           allure_history: allure-history
 
-      - name: Deploy report to GitHub Pages
+      # Optional: Download report from Actions
+      - name: Upload Allure Report
         if: always()
-        uses: peaceiris/actions-gh-pages@v4
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
+
+      - name: Deploy to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: allure-history
+          publish_dir: allure-report
+
+      - name: Report Link
+        if: always()
+        run: |
+          echo "Tests completed"
+          echo "Report: https://lakhanust01.github.io/w6day3b/"
