@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","49","should count persisted orders","","2026-07-10","failed","2026-07-10","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","countsOrders"
+"","86","shouldUseContainerCredentialsAndApplyMigrations()","","2026-07-10","passed","2026-07-10","","com.ust.sdet.support.PostgresFlywayInfrastructureTest","com.ust.sdet.support.PostgresFlywayInfrastructureTest","shouldUseContainerCredentialsAndApplyMigrations"
+"","54","should persist an order with custom attributes","","2026-07-10","failed","2026-07-10","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","createsOrderWithCustomAttributes"
+"","38","should persist an order with default values","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","createsOrder"
+"","49","should persist and count multiple orders","","2026-07-10","passed","2026-07-10","","com.ust.sdet.tests.OrderTest","com.ust.sdet.tests.OrderTest","countsMultipleOrders"
