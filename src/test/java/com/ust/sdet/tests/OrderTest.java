@@ -47,7 +47,7 @@ public class OrderTest extends AbstractPostgresIntegrationTest {
     @DisplayName("should count persisted orders")
     void countsOrders() {
         factory.persisted(anOrder().withSku("SKU-2"));
-        assertEquals(6, repo.count());
+        assertEquals(1, repo.count());
     }
 
     @Test
@@ -67,6 +67,30 @@ public class OrderTest extends AbstractPostgresIntegrationTest {
     void createsOrderWithCustomAttributes() {
         factory.persisted(anOrder().withSku("SKU-9").withQty(7).withPrice(199.99).shipped());
         assertEquals(4, repo.count());
+    }
+
+    @Test
+    @Severity(SeverityLevel.TRIVIAL)
+    @Story("Temporary skipped validation")
+    @DisplayName("should be skipped for dashboard status visibility")
+    void skippedForDashboardVisibility() {
+        org.junit.jupiter.api.Assumptions.assumeTrue(false, "Intentional skip to show skipped status in Allure");
+    }
+
+    @Test
+    @Severity(SeverityLevel.CRITICAL)
+    @Story("Intentional failure")
+    @DisplayName("should fail for dashboard failure category visibility")
+    void failedForDashboardVisibility() {
+        assertTrue(false, "Intentional failure to populate failed category in Allure");
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Intentional broken state")
+    @DisplayName("should break for dashboard broken category visibility")
+    void brokenForDashboardVisibility() {
+        throw new IllegalStateException("Intentional broken state to populate broken category in Allure");
     }
 }
  

@@ -1,14 +1,18 @@
 [
   {
-    "name": "Ignored tests",
+    "name": "Skipped tests",
     "matchedStatuses": ["skipped"]
   },
   {
-    "name": "Product defects",
+    "name": "Broken tests",
+    "matchedStatuses": ["broken"]
+  },
+  {
+    "name": "Failed tests",
     "matchedStatuses": ["failed"]
   },
   {
-    "name": "Test defects",
-    "matchedStatuses": ["broken"]
+    "name": "Unknown status",
+    "matchedStatuses": ["unknown"]
   }
 ]
