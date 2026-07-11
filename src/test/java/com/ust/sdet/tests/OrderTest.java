@@ -92,5 +92,23 @@ public class OrderTest extends AbstractPostgresIntegrationTest {
     void brokenForDashboardVisibility() {
         throw new IllegalStateException("Intentional broken state to populate broken category in Allure");
     }
+
+    @Test
+    @Severity(SeverityLevel.MINOR)
+    @Story("Order count edge case")
+    @DisplayName("should handle an extra order count scenario")
+    void edgeCaseCountScenario() {
+        factory.persisted(anOrder().withSku("SKU-10").withQty(1));
+        assertEquals(1, repo.count());
+    }
+
+    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Story("Order creation with custom price")
+    @DisplayName("should create an order with a custom price")
+    void customPriceOrderScenario() {
+        factory.persisted(anOrder().withSku("SKU-11").withQty(5).withPrice(249.99));
+        assertEquals(1, repo.count());
+    }
 }
  
