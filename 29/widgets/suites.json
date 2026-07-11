@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"dd9dac1efa804acdc85cc1791c322efb","name":"com.ust.sdet.tests.OrderTest","statistic":{"failed":2,"broken":1,"skipped":1,"passed":5,"unknown":0,"total":9}},{"uid":"d455e066781f40d67d4979c9eb57b54b","name":"com.ust.sdet.support.PostgresFlywayInfrastructureTest","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
